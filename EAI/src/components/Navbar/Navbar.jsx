@@ -35,13 +35,35 @@ export default function Navbar() {
                   </Disclosure.Button>
                 </div>
                 <div className="flex flex-1 items-center  sm:items-stretch sm:justify-start">
-                  <div className="flex flex-shrink-0 items-center">
+                  <a
+                    className="flex flex-shrink-0 items-center cursor-pointer"
+                    
+                    onClick={() => {
+                      const targetElement = document.getElementById("Home");
+
+                      if (targetElement) {
+                        targetElement.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }
+                    }}
+                  >
                     <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="Your Company"
+                      alt="logo"
+                      loading="lazy"
+                      width="50"
+                      height="50"
+                      decoding="async"
+                      data-nimg="1"
+                      className="h-8 w-8"
+                      style={{ color: "transparent" }}
+                      srcset="https://eaisoft.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.75e475c4.png&w=64&q=75 1x, https://eaisoft.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.75e475c4.png&w=128&q=75 2x"
+                      src="https://eaisoft.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.75e475c4.png&w=128&q=75"
                     />
-                  </div>
+                    <h1 class="justify-self-center pl-2 text-2xl font-extrabold text-primary text-[#007aff]">
+                      Eaisoft
+                    </h1>
+                  </a>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
                       {navigation.map((item) => (
@@ -49,10 +71,14 @@ export default function Navbar() {
                           key={item.name}
                           // href={item.href}
                           onClick={() => {
-                            const targetElement = document.getElementById(item.href);
-              
+                            const targetElement = document.getElementById(
+                              item.href
+                            );
+
                             if (targetElement) {
-                              targetElement.scrollIntoView({ behavior: "smooth" });
+                              targetElement.scrollIntoView({
+                                behavior: "smooth",
+                              });
                             }
                           }}
                           className={classNames(
@@ -78,7 +104,18 @@ export default function Navbar() {
                   <Disclosure.Button
                     key={item.name}
                     as="a"
-                    href={item.href}
+                    // href={item.href}
+                    onClick={() => {
+                      const targetElement = document.getElementById(
+                        item.href
+                      );
+
+                      if (targetElement) {
+                        targetElement.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }
+                    }}
                     className={classNames(
                       item.current
                         ? "bg-gray-900 text-white"
