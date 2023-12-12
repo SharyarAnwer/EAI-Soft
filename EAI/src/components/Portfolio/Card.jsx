@@ -12,7 +12,7 @@ export default function Card(prop) {
     <div className="py-6">
         <div
           ref={refCard}
-          className={`w-80 bg-white rounded-lg overflow-hidden ${
+          className={`w-72 bg-white rounded-lg overflow-hidden ${
             inViewCard
               ? "translate-y-0 opacity-100"
               : "-translate-y-8 opacity-0"
@@ -24,7 +24,7 @@ export default function Card(prop) {
             className="w-full aspect-square rounded-t-lg"
           />
 
-          <h1 className="text-black text-lg py-3 text-center">{prop.desc}</h1>
+          <h1 className="text-black text-lg py-3 px-2 text-center">{prop.desc}</h1>
         </div>
     </div>
   );
